@@ -41,10 +41,11 @@ flutter:
     - family: DM Sans
       fonts:
         - asset: assets/fonts/DM Sans/DMSans_18pt-SemiBold.ttf
+        - asset: assets/fonts/DM Sans/DMSans_18pt-Regular.ttf
 
     - family: Fraunces
       fonts:
-        - asset: assets/fonts/DM Sans/DMSans_18pt-Regular.ttf
+        - asset: assets/fonts/Fraunces/Fraunces_72pt-Black.ttf
 
     - family: Montserrat
       fonts:
