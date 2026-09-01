@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'app/app_route.dart';
 import 'feautures/splash_screen.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -22,9 +23,8 @@ class MyApp extends StatelessWidget {
           colorSchemeSeed: const Color(0xFFF2790A),
           useMaterial3: true,
         ),
-        home: SplashScreen(
-          onOnboardingFinish: () {},
-        ),
+        initialRoute: AppRoute.splash,
+        routes: AppRoute.routes,
       ),
     );
   }

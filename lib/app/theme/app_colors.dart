@@ -17,5 +17,7 @@ class AppColors {
   static const usagePatternContainer = Color(0xffEAEFF5);
   static const usagePatternContainer2 = Color(0xffF7F4EF);
   static const usagePatternContainerText = Color(0xff1D7A4E);
+  static const navColor = Color(0xFF112244);
+  static const kitchen = Color(0x59FDF2EA);
 
 }

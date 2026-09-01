@@ -16,7 +16,7 @@ class SearchTextField extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       width: 354.w,
-      height:   34.h,
+      height: 34.h,
       padding: EdgeInsets.symmetric(vertical: 6.h, horizontal: 8.5.w),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(14.r),
