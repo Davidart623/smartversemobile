@@ -3,7 +3,7 @@ import 'package:smartversemobile/app/theme/app_colors.dart';
 import 'package:smartversemobile/feautures/auth/presentation/widgets/auth_submit_button.dart';
 import 'package:smartversemobile/feautures/auth/presentation/widgets/auth_text_field.dart';
 import 'package:smartversemobile/feautures/auth/presentation/widgets/forgot_password_sheet.dart';
-import 'package:smartversemobile/feautures/auth/presentation/widgets/incorrect_password_sheet.dart';
+import 'package:smartversemobile/feautures/dashboard/presentation/widgets/edit_wattage_sheet.dart';
 
 class LoginForm extends StatefulWidget {
   const LoginForm({super.key});
@@ -19,7 +19,13 @@ class _LoginFormState extends State<LoginForm> {
   final TextEditingController _passwordController = TextEditingController();
 
   void _handleLogin() {
-    IncorrectPasswordSheet.show(context, email: _emailController.text);
+    EditWattageSheet.show(
+      context,
+      applianceName: "Preview Appliance",
+      applianceImage: "assets/images/pick_appliances.png",
+      initialWattage: 100,
+      onSave: (val) {},
+    );
   }
 
   @override

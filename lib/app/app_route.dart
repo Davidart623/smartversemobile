@@ -22,7 +22,7 @@ class AppRoute {
           onOnboardingFinish: () {},
         ),
    onboarding: (context) => OnboardingScreen(onFinish: (BuildContext context) {
-     Navigator.pushReplacementNamed(context, AppRoute.createAccount);
+     Navigator.pushReplacementNamed(context, AppRoute.login);
    },),
    dashboardScreen: (context) => const DashboardScreen(),
    kitchenScreen: (context) => const KitchenScreen(),
