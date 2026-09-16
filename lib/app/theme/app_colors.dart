@@ -27,5 +27,18 @@ class AppColors {
   static const powermode2 = Color(0xFFF5F5F5);
   static const calculatedBg = Color(0x80FDF2EA);
   static const kitchenCalc = Color(0xff3C485C);
-
+  static const white2 = Color(0xfff7f7f7);
+  static const black2 = Color(0xff333333);
+  static const purpleColor = Color(0xFF6C34E8);
+  static const greenColor = Color(0xFF117C4B);
+  static const blueColor = Color(0xFF4C58D2);
+  static const successGreen = Color(0xFF3B974B);
+  static const googleBgCreate = Color(0xFFFDF2EA);
+  static const googleBgLogin = Color(0xFFFDF2EA);
+  static const black = Color(0xFF000000);
+  static const white = Color(0xFFFFFFFF);
+  static const grey = Color(0xFF9E9E9E);
+  static const grey400 = Color(0xFFBDBDBD);
+  static const grey600 = Color(0xFF757575);
+  static const grey700 = Color(0xFF616161);
 }

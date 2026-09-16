@@ -13,7 +13,6 @@ import 'package:smartversemobile/feautures/dashboard/presentation/screens/home/p
 
 import 'category_appliance_screen.dart';
 
-
 class Home extends StatefulWidget {
   const Home({super.key});
 
@@ -31,7 +30,6 @@ class _HomeState extends State<Home> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-
       backgroundColor: AppColors.main,
       body: SafeArea(
         child: Padding(
