@@ -6,6 +6,8 @@ import 'package:smartversemobile/feautures/auth/presentation/widgets/sheet_actio
 import 'package:smartversemobile/feautures/auth/presentation/widgets/sheet_close_button.dart';
 import 'package:smartversemobile/feautures/auth/presentation/widgets/sheet_outlined_button.dart';
 
+import 'forgot_password_sheet.dart';
+
 class IncorrectPasswordSheet extends StatelessWidget {
   final String email;
 
@@ -100,7 +102,13 @@ class IncorrectPasswordSheet extends StatelessWidget {
           const SizedBox(height: 25),
           SheetActionButton(text: "Try Again", onPressed: () => Navigator.pop(context)),
           const SizedBox(height: 15),
-          SheetOutlinedButton(text: "Reset Password", onPressed: () {}),
+          SheetOutlinedButton(
+            text: "Reset Password",
+            onPressed: () {
+              Navigator.pop(context);
+              ForgotPasswordSheet.show(context, initialEmail: email);
+            },
+          ),
           const SizedBox(height: 20),
         ],
       ),
