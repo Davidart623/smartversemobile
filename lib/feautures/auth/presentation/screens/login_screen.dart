@@ -7,6 +7,9 @@ import 'package:smartversemobile/feautures/auth/presentation/widgets/login_form.
 import 'package:smartversemobile/feautures/auth/presentation/widgets/or_divider.dart';
 import 'package:smartversemobile/feautures/auth/presentation/widgets/social_login_button.dart';
 import 'package:smartversemobile/feautures/auth/presentation/widgets/terms_and_conditions_text.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:smartversemobile/core/di/service_locator.dart';
+import 'package:smartversemobile/feautures/auth/presentation/cubit/login_cubit.dart';
 
 class LoginScreen extends StatelessWidget {
   const LoginScreen({super.key});
@@ -43,7 +46,10 @@ class LoginScreen extends StatelessWidget {
                     const SizedBox(height: 30),
                     const OrDivider(),
                     const SizedBox(height: 30),
-                    const LoginForm(),
+                    BlocProvider(
+                      create: (_) => LoginCubit(getIt()),
+                      child: const LoginForm(),
+                    ),
                     const SizedBox(height: 30),
                     AuthRedirectText(
                       text: "Don't have an account? ",

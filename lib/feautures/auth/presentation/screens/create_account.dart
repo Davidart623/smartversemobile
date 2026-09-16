@@ -7,6 +7,9 @@ import 'package:smartversemobile/feautures/auth/presentation/widgets/create_acco
 import 'package:smartversemobile/feautures/auth/presentation/widgets/or_divider.dart';
 import 'package:smartversemobile/feautures/auth/presentation/widgets/social_login_button.dart';
 import 'package:smartversemobile/feautures/auth/presentation/widgets/terms_and_conditions_text.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:smartversemobile/core/di/service_locator.dart';
+import 'package:smartversemobile/feautures/auth/presentation/cubit/register_cubit.dart';
 
 class CreateAccount extends StatelessWidget {
   const CreateAccount({super.key});
@@ -39,7 +42,10 @@ class CreateAccount extends StatelessWidget {
                     const SizedBox(height: 18),
                     const OrDivider(),
                     const SizedBox(height: 18),
-                    const CreateAccountForm(),
+                    BlocProvider(
+                      create: (_) => RegisterCubit(getIt()),
+                      child: const CreateAccountForm(),
+                    ),
                     const SizedBox(height: 30),
                     AuthRedirectText(
                       text: "Already have an account? ",
