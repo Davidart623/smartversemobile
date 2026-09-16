@@ -65,11 +65,15 @@ class SaveResultBottomSheet extends StatelessWidget {
             AppButton(
               title: "Create Account",
               onTap: () {
+                Navigator.pop(context);
+                Navigator.pushNamed(context, '/create_account');
               },
             ),
             SizedBox(height: 8.h),
             InkWell(
               onTap: () {
+                Navigator.pop(context);
+                Navigator.pushNamed(context, '/login');
               },
               borderRadius: BorderRadius.circular(10.r),
               child: Container(

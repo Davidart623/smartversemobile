@@ -12,6 +12,7 @@ import 'feautures/dashboard/presentation/bloc/calculation_cubit.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  setupServiceLocator();
   await TokenStorage.instance.init();
   runApp(const MyApp());
 }
