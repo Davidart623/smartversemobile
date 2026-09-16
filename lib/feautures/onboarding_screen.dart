@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class OnboardingColors {
   static const primaryOrange = Color(0xFFF2790A);
@@ -24,18 +25,18 @@ class OnboardingPageData {
 const List<OnboardingPageData> onboardingPages = [
   OnboardingPageData(
     imageAsset: 'assets/images/stop_guessing.png',
-    title: 'Pick your appliances.',
+    title: 'Stop guessing.Start sizing.',
     description:
-    'Select from 20+ common Nigerian home appliances across 5 categories. '
-        'Each one has a pre-filled typical wattage you can edit to match your actual unit.',
+    'Smartvert calculates the exact inverter, battery, and solar panel setup '
+        'for your home or business based on your actual appliances.',
     buttonLabel: 'Next',
   ),
   OnboardingPageData(
     imageAsset: 'assets/images/pick_appliances.png',
-    title: 'Stop guessing. Start sizing.',
+    title: 'Pick your appliances. ',
     description:
-    'Smartvert calculates the exact inverter, battery, and solar panel setup '
-        'for your home or business based on your actual appliances.',
+    'Select from 20+ common Nigerian home appliances across 5 categories. '
+        'Each one has a pre-filled typical wattage you can edit to match your actual unit.',
     buttonLabel: 'Next',
   ),
   OnboardingPageData(
@@ -50,7 +51,7 @@ const List<OnboardingPageData> onboardingPages = [
 ];
 
 class OnboardingScreen extends StatefulWidget {
-  final VoidCallback onFinish;
+  final void Function(BuildContext context) onFinish;
 
   const OnboardingScreen({super.key, required this.onFinish});
 
@@ -72,7 +73,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
 
   void _onButtonPressed() {
     if (_isLastPage) {
-      widget.onFinish();
+      widget.onFinish(context);
     } else {
       _controller.nextPage(
         duration: const Duration(milliseconds: 350),
@@ -80,7 +81,6 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
       );
     }
   }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -104,10 +104,10 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
             ),
             const SizedBox(height: 24),
             Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 24),
+              padding:  EdgeInsets.symmetric(horizontal: 24.w),
               child: SizedBox(
                 width: double.infinity,
-                height: 56,
+                height: 56.h,
                 child: ElevatedButton(
                   onPressed: _onButtonPressed,
                   style: ElevatedButton.styleFrom(
@@ -148,31 +148,31 @@ class _OnboardingPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 32),
+      padding: EdgeInsets.symmetric(horizontal: 32.w),
       child: Column(
         children: [
-          const Spacer(flex: 3),
+          const Spacer(flex: 2),
           SizedBox(
-            height: 220,
+            height: 260.h,
             child: Image.asset(
               data.imageAsset,
               fit: BoxFit.contain,
               errorBuilder: (context, error, stackTrace) {
                 debugPrint('Failed to load ${data.imageAsset}: $error');
                 return SizedBox(
-                  height: 220,
+                  height: 260.h,
                   child: Center(
                     child: Column(
                       mainAxisSize: MainAxisSize.min,
                       children: [
-                        const Icon(Icons.broken_image_outlined,
-                            size: 40, color: Colors.redAccent),
-                        const SizedBox(height: 8),
+                        Icon(Icons.broken_image_outlined,
+                            size: 40.sp, color: Colors.redAccent),
+                        SizedBox(height: 8.h),
                         Text(
                           'Missing: ${data.imageAsset}',
                           textAlign: TextAlign.center,
-                          style: const TextStyle(
-                              fontSize: 11, color: Colors.redAccent),
+                          style: TextStyle(
+                              fontSize: 11.sp, color: Colors.redAccent),
                         ),
                       ],
                     ),
@@ -181,28 +181,29 @@ class _OnboardingPage extends StatelessWidget {
               },
             ),
           ),
-          const Spacer(flex: 3),
+
+
           Text(
             data.title,
             textAlign: TextAlign.center,
-            style: const TextStyle(
-              fontSize: 28,
+            style: TextStyle(
+              fontSize: 28.sp,
               fontWeight: FontWeight.w800,
               color: OnboardingColors.title,
               height: 1.2,
             ),
           ),
-          const SizedBox(height: 16),
+          SizedBox(height: 16.h),
           Text(
             data.description,
             textAlign: TextAlign.center,
-            style: const TextStyle(
-              fontSize: 15,
+            style: TextStyle(
+              fontSize: 15.sp,
               color: OnboardingColors.subtitle,
               height: 1.5,
             ),
           ),
-          const Spacer(flex: 5),
+          const Spacer(flex: 3),
         ],
       ),
     );

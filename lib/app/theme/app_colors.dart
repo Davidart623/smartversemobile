@@ -8,6 +8,7 @@ class AppColors {
   static const surgeContainer = Color(0xffF8D6BE);
   static const textColor = Color(0xff000000);
   static const textColor2 = Color(0xff575757);
+  static const textColor3 = Color(0xff545454);
   static const searchtext = Color(0xff8A8A8A);
   static const searchtextField = Color(0xffE6E6E6);
   static const appliancesContainer = Color(0xffF8FAFD);
@@ -17,5 +18,14 @@ class AppColors {
   static const usagePatternContainer = Color(0xffEAEFF5);
   static const usagePatternContainer2 = Color(0xffF7F4EF);
   static const usagePatternContainerText = Color(0xff1D7A4E);
+  static const navColor = Color(0xFF112244);
+  static const kitchen = Color(0x59FDF2EA);
+  static const appliancesC = Color(0xffBEBEBE);
+  static const appliancesCText = Color(0xff577BB1);
+  static const usageC = Color(0xffF4F8FC);
+  static const powermode = Color(0xffA0BAD4);
+  static const powermode2 = Color(0xFFF5F5F5);
+  static const calculatedBg = Color(0x80FDF2EA);
+  static const kitchenCalc = Color(0xff3C485C);
 
 }

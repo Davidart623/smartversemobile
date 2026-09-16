@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:smartversemobile/app/app_route.dart';
+import 'dashboard/dashboard_screen.dart';
 import 'onboarding_screen.dart';
 
 class SplashColors {
@@ -20,15 +23,15 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
   void initState() {
     super.initState();
-    Future.delayed(const Duration(seconds: 3), () {
+    Future.delayed(const Duration(seconds: 4), () {
       if (!mounted) return;
-      Navigator.pushReplacement(
-        context,
-        MaterialPageRoute(
-          builder: (_) => OnboardingScreen(onFinish: widget.onOnboardingFinish),
-        ),
+      Navigator.pushReplacementNamed(
+        context, AppRoute.onboarding
+
+
       );
     });
+
   }
 
   @override
@@ -51,31 +54,53 @@ class _SplashScreenState extends State<SplashScreen> {
           child: Column(
             children: [
               const Spacer(flex: 4),
-              const SizedBox(height: 120, width: 120),
+              SizedBox(height: 120.h, width: 120.w),
               const Spacer(flex: 1),
-              const Text(
+              Text(
                 'Smartvert',
                 textAlign: TextAlign.center,
                 style: TextStyle(
-                  fontSize: 46,
+                  fontSize: 46.sp,
                   fontWeight: FontWeight.w700,
                   height: 52 / 46,
-                  color: Colors.white,
+                  color: Color(0xFFFFFFFF)
+
                 ),
               ),
-              const SizedBox(height: 8),
-              const Padding(
-                padding: EdgeInsets.symmetric(horizontal: 32),
-                child: Text(
-                  'Know your solar. Right size, first time.',
-                  textAlign: TextAlign.center,
-                  style: TextStyle(
-                    fontSize: 13,
-                    fontWeight: FontWeight.w400,
-                    height: 19.5 / 13,
-                    letterSpacing: 0.6,
-                    color: SplashColors.tagline,
-                  ),
+              SizedBox(height: 8.h),
+              Padding(
+                padding: EdgeInsets.symmetric(horizontal: 16.w),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Expanded(
+                      child: Container(
+                        height: 1.h,
+                          color: Color(0xffB3B8C0)
+                      ),
+                    ),
+                    Padding(
+                      padding: EdgeInsets.symmetric(horizontal: 12.w),
+                      child: Text(
+                        'Know your solar. Right size, first time.',
+                        textAlign: TextAlign.center,
+                        style: TextStyle(
+                          fontSize: 13.sp,
+                          fontWeight: FontWeight.w400,
+                          height: 19.5 / 13,
+                          letterSpacing: 0.6,
+                          color: SplashColors.tagline,
+                        ),
+                      ),
+                    ),
+                    Expanded(
+                      child: Container(
+                        height: 1.h,
+                        color: Color(0xffB3B8C0)
+
+                      ),
+                    ),
+                  ],
                 ),
               ),
               const Spacer(flex: 5),
