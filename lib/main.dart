@@ -1,18 +1,37 @@
+import 'dart:ui';
+
+import 'package:firebase_analytics/firebase_analytics.dart';
+import 'package:firebase_crashlytics/firebase_crashlytics.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'app/app_route.dart';
 import 'core/di/service_locator.dart';
 import 'core/network/token_storage.dart';
-
+import 'package:firebase_core/firebase_core.dart';
+import 'firebase_options.dart';
 import 'feautures/dashboard/data/repository/appliance_repository.dart';
 import 'feautures/dashboard/data/repository/calculation_repository.dart';
 import 'feautures/dashboard/presentation/bloc/appliance_cubit.dart';
 import 'feautures/dashboard/presentation/bloc/calculation_cubit.dart';
 import 'core/storage/onboarding_storage.dart';
 
+final FirebaseAnalytics analytics = FirebaseAnalytics.instance;
+final FirebaseAnalyticsObserver observer = FirebaseAnalyticsObserver(analytics: analytics);
+
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
+  FlutterError.onError = (errorDetails) {
+    FirebaseCrashlytics.instance.recordFlutterFatalError(errorDetails);
+  };
+
+  PlatformDispatcher.instance.onError = (error, stack) {
+    FirebaseCrashlytics.instance.recordError(error, stack, fatal: true);
+    return true;
+  };
   setupServiceLocator();
   await TokenStorage.instance.init();
   await OnboardingStorage.instance.init();
@@ -35,6 +54,7 @@ class MyApp extends StatelessWidget {
         minTextAdapt: true,
         splitScreenMode: true,
         child: MaterialApp(
+          navigatorObservers: [observer],
           title: 'Smartvert',
           debugShowCheckedModeBanner: false,
           theme: ThemeData(
