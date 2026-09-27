@@ -28,7 +28,7 @@ class EmptySavedProfiles extends StatelessWidget {
             inputText: "Run a calculation and save it to build your profile library.",
             size: 14.spMin,
             weight: FontWeight.w400,
-            textColor: Color(0xff7A9AB8),
+            textColor: Color(0xff545454),
             textAlign: TextAlign.center,
           ),
         ),
