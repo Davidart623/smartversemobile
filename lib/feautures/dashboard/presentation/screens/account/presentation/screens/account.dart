@@ -74,14 +74,12 @@ class _SignedInScreenState extends State<_SignedInScreen> {
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Text(
-                "SMARTVERT",
-                style: TextStyle(
-                  color: AppColors.black,
-                  fontSize: 16.sp,
-                  fontWeight: FontWeight.w800,
-                  letterSpacing: 1.2,
-                ),
+              Image.asset(
+                'assets/images/Icon.png',
+                width: 148.w,
+                height: 46.h,
+                fit: BoxFit.contain,
+                alignment: Alignment.centerLeft,
               ),
               Container(
                 padding: EdgeInsets.all(8.w),
@@ -260,7 +258,7 @@ class _SignedInScreenState extends State<_SignedInScreen> {
                   iconBgColor: AppColors.usageC,
                   title: "My Reports",
                   subtitle: "View your solar recommendations and history",
-                  onTap: () {},
+                  onTap: () => Navigator.pushNamed(context, AppRoute.myReports),
                 ),
                 _buildDivider(),
                 _buildMenuItem(

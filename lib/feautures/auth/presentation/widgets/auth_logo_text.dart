@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:smartversemobile/app/theme/app_colors.dart';
 
 class AuthLogoText extends StatelessWidget {
@@ -6,16 +7,14 @@ class AuthLogoText extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Padding(
-      padding: EdgeInsets.symmetric(horizontal: 30),
-      child: Text(
-        "Smartvert",
-        style: TextStyle(
-          fontFamily: 'Inter',
-          fontSize: 22,
-          fontWeight: FontWeight.w700,
-          color: AppColors.appliancestext,
-        ),
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 30),
+      child: Image.asset(
+        'assets/images/Icon.png',
+        width: 148.w,
+        height: 46.h,
+        fit: BoxFit.contain,
+        alignment: Alignment.centerLeft,
       ),
     );
   }

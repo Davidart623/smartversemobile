@@ -4,8 +4,6 @@ import 'package:smartversemobile/feautures/auth/presentation/widgets/auth_logo_t
 import 'package:smartversemobile/feautures/auth/presentation/widgets/auth_redirect_text.dart';
 import 'package:smartversemobile/feautures/auth/presentation/widgets/auth_title.dart';
 import 'package:smartversemobile/feautures/auth/presentation/widgets/create_account_form.dart';
-import 'package:smartversemobile/feautures/auth/presentation/widgets/or_divider.dart';
-import 'package:smartversemobile/feautures/auth/presentation/widgets/social_login_button.dart';
 import 'package:smartversemobile/feautures/auth/presentation/widgets/terms_and_conditions_text.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:smartversemobile/core/di/service_locator.dart';
@@ -38,10 +36,6 @@ class CreateAccount extends StatelessWidget {
                   children: [
                     const AuthTitle(title: "CREATE YOUR\nACCOUNT", subtitle: "Get the right event within minutes"),
                     const SizedBox(height: 30),
-                    SocialLoginButton(onTap: () {}, text: "Continue with Google"),
-                    const SizedBox(height: 18),
-                    const OrDivider(),
-                    const SizedBox(height: 18),
                     BlocProvider(
                       create: (_) => RegisterCubit(getIt()),
                       child: const CreateAccountForm(),

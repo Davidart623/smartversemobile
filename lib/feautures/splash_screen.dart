@@ -1,14 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:smartversemobile/app/app_route.dart';
+import 'package:smartversemobile/app/theme/app_colors.dart';
 import 'package:smartversemobile/core/storage/onboarding_storage.dart';
-import 'onboarding_screen.dart';
-
-class SplashColors {
-  static const backgroundBase = Color(0xFF0E1A34);
-  static const backgroundGlow = Color(0xFF1E2E58);
-  static const tagline = Color(0xFF7BAADF);
-}
 
 class SplashScreen extends StatefulWidget {
   final VoidCallback onOnboardingFinish;
@@ -30,81 +24,48 @@ class _SplashScreenState extends State<SplashScreen> {
           : AppRoute.onboarding;
       Navigator.pushReplacementNamed(context, next);
     });
-
   }
 
   @override
   Widget build(BuildContext context) {
+    final size = MediaQuery.of(context).size;
+
+    // Blob sizing/positioning as a fraction of the screen, taken from the design.
+    final orangeSize = size.width * 0.78;
+    final blueSize = size.width * 0.68;
+
     return Scaffold(
-      body: Container(
-        width: double.infinity,
-        height: double.infinity,
-        decoration: const BoxDecoration(
-          gradient: RadialGradient(
-            center: Alignment(0, -0.4),
-            radius: 1.1,
-            colors: [
-              SplashColors.backgroundGlow,
-              SplashColors.backgroundBase,
-            ],
-          ),
-        ),
-        child: SafeArea(
-          child: Column(
-            children: [
-              const Spacer(flex: 4),
-              SizedBox(height: 120.h, width: 120.w),
-              const Spacer(flex: 1),
-              Text(
-                'Smartvert',
-                textAlign: TextAlign.center,
-                style: TextStyle(
-                  fontSize: 46.sp,
-                  fontWeight: FontWeight.w700,
-                  height: 52 / 46,
-                  color: Color(0xFFFFFFFF)
-
+      backgroundColor: AppColors.main,
+      body: SizedBox.expand(
+        child: Stack(
+          children: [
+            // Orange glow (top, slightly left of centre)
+            Positioned(
+              left: size.width * 0.51 - orangeSize / 2,
+              top: size.height * 0.264 - orangeSize / 2,
+              width: orangeSize,
+              height: orangeSize,
+              child: Image.asset('assets/images/red.png', fit: BoxFit.contain),
+            ),
+            // Blue glow (right, bleeds off the edge)
+            Positioned(
+              left: size.width * 0.79 - blueSize / 2,
+              top: size.height * 0.628 - blueSize / 2,
+              width: blueSize,
+              height: blueSize,
+              child: Image.asset('assets/images/blue.png', fit: BoxFit.contain),
+            ),
+            // Logo + wordmark + tagline (all one image)
+            SafeArea(
+              child: Center(
+                child: Image.asset(
+                  'assets/images/splash_logo.png',
+                  width: 345.w,
+                  fit: BoxFit.contain,
                 ),
               ),
-              SizedBox(height: 8.h),
-              Padding(
-                padding: EdgeInsets.symmetric(horizontal: 16.w),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Expanded(
-                      child: Container(
-                        height: 1.h,
-                          color: Color(0xffB3B8C0)
-                      ),
-                    ),
-                    Padding(
-                      padding: EdgeInsets.symmetric(horizontal: 12.w),
-                      child: Text(
-                        'Know your solar. Right size, first time.',
-                        textAlign: TextAlign.center,
-                        style: TextStyle(
-                          fontSize: 13.sp,
-                          fontWeight: FontWeight.w400,
-                          height: 19.5 / 13,
-                          letterSpacing: 0.6,
-                          color: SplashColors.tagline,
-                        ),
-                      ),
-                    ),
-                    Expanded(
-                      child: Container(
-                        height: 1.h,
-                        color: Color(0xffB3B8C0)
-
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-              const Spacer(flex: 5),
-            ],
-          ),
+            ),
+          ],
         ),
       ),
     );

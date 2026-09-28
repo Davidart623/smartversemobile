@@ -1,5 +1,6 @@
 import 'dart:typed_data';
 
+import 'package:flutter/services.dart' show rootBundle;
 import 'package:pdf/pdf.dart';
 import 'package:pdf/widgets.dart' as pw;
 
@@ -20,6 +21,9 @@ class CalculationPdfService {
     final hasSolar = rec.solar.panelCount > 0;
 
     final doc = pw.Document(title: 'SmartVert Report', author: 'SmartVert');
+    final logo = pw.MemoryImage(
+      (await rootBundle.load('assets/images/Icon.png')).buffer.asUint8List(),
+    );
 
     doc.addPage(
       pw.MultiPage(
@@ -35,8 +39,13 @@ class CalculationPdfService {
           pw.Row(
             mainAxisAlignment: pw.MainAxisAlignment.spaceBetween,
             children: [
-              pw.Text('SmartVert',
-                  style: pw.TextStyle(fontSize: 22, fontWeight: pw.FontWeight.bold, color: _orange)),
+              pw.Image(
+                logo,
+                width: 148,
+                height: 46,
+                fit: pw.BoxFit.contain,
+                alignment: pw.Alignment.centerLeft,
+              ),
               pw.Text(_formatDate(when), style: const pw.TextStyle(fontSize: 11, color: _grey)),
             ],
           ),
