@@ -14,6 +14,7 @@ import '../feautures/onboarding_screen.dart';
 import 'package:smartversemobile/feautures/dashboard/presentation/screens/account/presentation/screens/help_support_screen.dart';
 import 'package:smartversemobile/feautures/dashboard/presentation/screens/account/presentation/screens/location_screen.dart';
 import 'package:smartversemobile/feautures/dashboard/presentation/screens/account/presentation/screens/edit_profile_screen.dart';
+import 'package:smartversemobile/feautures/dashboard/presentation/screens/account/presentation/screens/my_reports_screen.dart';
 
 class AppRoute {
   static const String splash = '/';
@@ -31,6 +32,7 @@ class AppRoute {
   static const String helpSupport = 'helpSupport';
   static const String location = 'location';
   static const String editProfile = 'editProfile';
+  static const String myReports = 'myReports';
 
   static final routes = <String, Widget Function(BuildContext)>{
     splash: (context) => SplashScreen(
@@ -54,5 +56,6 @@ class AppRoute {
     helpSupport: (context) => const HelpSupportScreen(),
     location: (context) => const LocationScreen(),
     editProfile: (context) => const EditProfileScreen(),
+    myReports: (context) => const MyReportsScreen(),
   };
 }

@@ -38,12 +38,12 @@ class RecommendedInverterCard extends StatelessWidget {
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              MText(
-                inputText: 'Smartvert',
-                size: 20,
-                weight: FontWeight.w800,
-                textColor: AppColors.textColor,
-                textAlign: TextAlign.left,
+              Image.asset(
+                'assets/images/Icon.png',
+                width: 148.w,
+                height: 46.h,
+                fit: BoxFit.contain,
+                alignment: Alignment.centerLeft,
               ),
               MText(
                 inputText: DateFormat('d MMMM yyyy').format(date),
